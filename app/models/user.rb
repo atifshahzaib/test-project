@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :products, dependent: :destroy
   has_many :cart_items, dependent: :destroy
   has_many :shipments, through: :orders
-  validates :full_name, presence: true, length: { minimum: 6, maximum: 25 }
+  validates :full_name, presence: true, length: { minimum: 2, maximum: 25 }
 
   def thumbnail(width)
     image.variant(resize: width).processed if image.attached?

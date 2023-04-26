@@ -2,7 +2,7 @@ class Shipment < ApplicationRecord
   belongs_to :order
   belongs_to :user
 
-  enum status: { pending: 'Pending', completed: 'Complete' }
+  enum status: { pending: 'pending', completed: 'complete' }
   enum payment_method: { cash_on_delivery: 'Cash On Delivery', card: 'Debit/Credit Card' }
 
   validates :customer_name,

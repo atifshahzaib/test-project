@@ -1,0 +1,19 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+  <% if @products.count > 0 %>
+    <% @products.each do |product| %>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <% if product.images.attached? %>
+          <% product.images.each_with_index do |image, index| %>
+              <%= image_tag image.variant(resize: '400x400'.to_s), class: 'h-64 w-full object-cover', alt: 'Product Image' %>
+          <%end%>
+        <%end%>
+        <div class="p-4">
+          <h2 class="font-bold text-xl mb-2"><%= product.name %></h2>
+          <p class="text-gray-700 text-base">Price: <%= number_to_currency(product.price) %></p>
+          <%= link_to "View Detail", product_path(product), class: "text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700", type: :button %>
+        </div>
+    <% end %>
+  <%else%>
+    <h4 class="text-blue-600">No product available</h4>
+  <%end%>
+</div>

@@ -16,7 +16,10 @@ gem "stimulus-rails"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i(mingw mswin x64_mingw jruby)
 gem "devise"
-
+gem 'pry-byebug', '~> 3.9', platform: :mri
+gem 'pry-rails', '~> 0.3.9'
+gem 'activerecord-import'
+gem 'simple_form'
 group :development, :test do
   gem "debug", platforms: %i(mri mingw x64_mingw)
   gem 'faker'

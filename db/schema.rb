@@ -85,10 +85,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_26_104334) do
 
   create_table "shipments", force: :cascade do |t|
     t.string "customer_name", default: "", null: false
-    t.string "shipping_address", default: "", null: false
-    t.string "phone_number", default: "", null: false
-    t.string "payment_method", default: "", null: false
-    t.string "status", default: "", null: false
+    t.string "shipping_address"
+    t.string "phone_number"
+    t.string "payment_method", default: "Cash On Delivery", null: false
+    t.string "status", default: "pending", null: false
     t.bigint "user_id", null: false
     t.bigint "order_id", null: false
     t.datetime "created_at", null: false
